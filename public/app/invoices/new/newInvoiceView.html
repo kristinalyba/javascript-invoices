@@ -1,0 +1,55 @@
+<div class="well col-md-6">
+  <h3>New invoice</h3>
+  <form ng-model="vm.formData" ng-model-options="{ debounce: 2000 }">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group"> 
+          <label for="customerSelect">Select customer</label>
+          <select ng-model="vm.formData.customer" class="form-control" id="customerSelect" ng-options="customer.name for customer in vm.customers track by customer.id">
+            <option value="">Select customer</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <!-- TODO: Move to derective -->
+      <div class="row" ng-repeat="productElement in vm.productElements">
+        <div class="col-xs-8">  
+          <label for="productSelect">Add product</label>
+          <select class="form-control" ng-model="vm.formData.products[productElement]" ng-options="product.name for product in vm.products track by product.id">
+            <option value="">Select product</option>
+          </select>
+        </div>
+        <div class="col-xs-4">
+          <label for="productAmount">Amount</label>
+          <select class="form-control" ng-model="vm.formData.products[productElement].quantity" id="productAmount">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button ng-click="vm.addProductElement()" class="form-control btn btn-default margin-top-10"><span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12"> 
+          <label for="discountValue">Discount</label>
+          <input type="text" class="form-control" ng-model="vm.formData.discount" id="discountValue" placeholder="%">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12"> 
+        <span class="label label-info">Total: {{vm.total}}</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right" ng-click="vm.saveInvoice()">Save</button>
+  </form>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Invoices app</title>
+
+    <link rel="stylesheet" type="text/css" href="scripts/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+  </head>
+  <body ng-app="invoicesApp" class="ng-cloak">
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Invoice App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="products">Products</a></li>
+            <li><a ui-sref="customers">Customers</a></li>
+            <li><a ui-sref="invoices.all">Invoices</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div ui-view></div>
+    </div> <!-- /container -->
+
+
+    <!-- Library Scripts -->
+    <script src="scripts/angular/angular.js"></script>
+    <script src="scripts/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="scripts/angular-bootstrap-npm/dist/angular-bootstrap-tpls.js"></script>
+    
+    <!-- Application scripts -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/dataService.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/products/productsController.js"></script>
+    <script src="app/customers/customersController.js"></script>
+    <script src="app/invoices/all/allInvoicesControlles.js"></script>
+    <script src="app/invoices/new/newInvoiceController.js"></script>
+    <script src="app/invoices/invoicesController.js"></script>
+
+    <!-- Directives -->
+    <script src="common/directives/directives.js"></script>
+  </body>
+</html>

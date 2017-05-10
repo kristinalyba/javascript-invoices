@@ -1,0 +1,26 @@
+<div>
+  <h3>All invoices</h3>
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <td>Customer id</td>
+          <td>Discount</td>
+          <td>Total</td>
+        </tr>
+      </thead>
+        <tbody>
+          <tr ng-repeat="invoice in vm.invoices">
+            <td>
+              <span>{{invoice.id}}</span>
+            </td>
+            <td>
+              <span>{{invoice.discount}}</span>
+            </td>
+            <td>
+              <span>{{invoice.total | currency}}</span>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary pull-right" ng-click="vm.createInvoice()">Create</button>
+</div>
